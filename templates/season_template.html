@@ -1,0 +1,25 @@
+{{if episodeList.length}}
+  {{each(idx, episode) episodeList}}
+    <div class="episodio seis">
+      <a href="${episode.path}" onclick="event.preventDefault(); SERIES.showPreviewModal(${idx})">
+        <img class="banner at" src="${episode.titleCard}">
+      </a>
+      <div id="modal-episodio${idx}" class="modal-thing">
+        <div class="modal-conteudo white-text">
+          <span class="fechar-modal center white-text" onclick="fecharModal();">FECHAR</span>
+          <div class="sinopse" style="background: url('${episode.titleCard}') no-repeat center center;background-size: cover">
+            <h6>${seriesName}</h6>
+            <strong><h2>${episode.name}</h2></strong>
+            <h5>${episode.formatedNumber}</h5>
+            <p>${episode.synopsis}</p>
+            <a href="${episode.path}">
+              <img class="watch-ep" src="img/watch.png">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <img class="not-found" src="seasons/not-found/notfound.png">
+{{/if}}
